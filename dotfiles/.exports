@@ -1,0 +1,4 @@
+[ -s "/usr/libexec/java_home" ] && export JAVA_HOME=$(eval /usr/libexec/java_home)
+[ -s "/usr/local/opt/gradle/libexec" ] && export GRADLE_USER_HOME=/usr/local/opt/gradle/libexec
+# Specify your defaults in this environment variable
+export HOMEBREW_CASK_OPTS="--fontdir=/Library/Fonts"
