@@ -1,12 +1,15 @@
 #!/usr/bin/env zsh
 
+# HOMEBREW options
+export HOMEBREW_CASK_OPTS="--fontdir=/Library/Fonts"
+
 # JAVA exports
 [ -s "/usr/libexec/java_home" ] && export JAVA_HOME=$(eval /usr/libexec/java_home)
 [ -s "/usr/local/opt/gradle/libexec" ] && export GRADLE_USER_HOME=/usr/local/opt/gradle/libexec
 [ -s "/opt/homebrew/opt/openjdk/bin" ] && export PATH="/opt/homebrew/opt/openjdk/bin:$PATH" && export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
 # ANDROID STUDIO
-[ -s "$HOME/Library/Android/sdk/platform-tools" ] && export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools/
-
-# Specify your defaults in this environment variable
-export HOMEBREW_CASK_OPTS="--fontdir=/Library/Fonts"
+if [ -s "$HOME/Library/Android/sdk/platform-tools" ]; then
+  export ANDROID_HOME=$HOME/Library/Android/sdk
+  export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+fi
