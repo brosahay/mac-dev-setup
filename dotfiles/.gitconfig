@@ -5,8 +5,7 @@
 	remotes = remote -v
 	# Pretty log output
 	hist = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset [%an]' --abbrev-commit --date=relative
-	# clean-branches = git branch | egrep -v "(^\*|master|main)" | xargs git branch -D
-
+	clean-branches = "!f() { git branch --merged | grep -v \"main\\|master\\|develop\\|*\" | xargs git branch -D; }; f"
 [color]
  	# Use colors in Git commands that are capable of colored output when
  	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
@@ -47,4 +46,3 @@
 	defaultBranch = master
 [push]
 	autoSetupRemote = true
-
